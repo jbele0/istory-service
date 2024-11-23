@@ -1,0 +1,11 @@
+#스토리지클래스(메뉴판) 디폴트도 있지만 이번엔 직접만들어사용
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp2-persistent
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Retain
+parameters:
+  type: gp2
+  fsType: ext4
+volumeBindingMode: WaitForFirstConsumer
